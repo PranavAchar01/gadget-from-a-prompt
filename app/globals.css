@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f3f1ea;
+  --panel: #fffdf8;
+  --ink: #17191c;
+  --muted: #6a6d71;
+  --line: #dedad0;
+  --grid: #ebe7dc;
+  --accent: #1f6f5c;
+  --accent-soft: #e2f0eb;
+  --warn: #b4561f;
+  --warn-soft: #fbeadf;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.wire {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: draw 0.9s ease-out forwards;
+}
+.wire.power {
+  stroke: var(--warn);
+}
+.block {
+  fill: var(--panel);
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+.mcu-box {
+  fill: var(--ink);
+}
+.mcu-title {
+  fill: var(--panel);
+  font: 600 14px var(--font-plex-sans);
+}
+.block-title {
+  fill: var(--ink);
+  font: 600 12px var(--font-plex-sans);
+}
+.block-sub {
+  fill: var(--muted);
+  font: 400 10.5px var(--font-plex-mono);
+}
+.mcu-box + .mcu-title + .block-sub {
+  fill: #b9bcc0;
+}
+.pin-label {
+  fill: var(--accent);
+  font: 500 10.5px var(--font-plex-mono);
+}
+.fade-in {
+  animation: fade 0.5s ease-out both;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
